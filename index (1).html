@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RajaKumar18.in – India's Premium Digital Multi Purpose Website</title>
+<meta name="description" content="RajaKumar18.in – India's #1 Digital Platform for Free Tools, AI Tips, Courses, Shayari, Social Media Hacks, Government Links and Daily Updates. सब कुछ एक जगह!">
+<meta name="keywords" content="RajaKumar18, free tools, AI tools, digital courses, shayari, Instagram bio, stylish name, QR scanner, blogging tips">
+<meta name="author" content="RajaKumar18.in">
+<meta property="og:title" content="RajaKumar18.in – India's Premium Digital Platform">
+<meta property="og:description" content="Tools, Courses, AI, Shayari, Useful Links – सब कुछ एक जगह!">
+<meta property="og:url" content="https://rajakumar18.in">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://rajakumar18.in">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "RajaKumar18.in",
+  "url": "https://rajakumar18.in",
+  "description": "India's Premium Digital Multi Purpose Website",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://rajakumar18.in/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Firebase – Analytics + Push Notification -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+  import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBU2nEW8g0OZjtLjevPdMRYhiJVJVSwA9o",
+    authDomain: "rajakumar18in.firebaseapp.com",
+    projectId: "rajakumar18in",
+    storageBucket: "rajakumar18in.firebasestorage.app",
+    messagingSenderId: "1091245207019",
+    appId: "1:1091245207019:web:d3dead5b17ebef316f3dae",
+    measurementId: "G-PBWYE8KBX7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const messaging = getMessaging(app);
+
+  // Push Notification Setup
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+    .then((registration) => {
+      getToken(messaging, {
+        vapidKey: "BPs39SemnUwBgpxFPjt-G5TyFi6G318vwpLzDbT_Ax4MniktewWfBDh_ICyuZYPgtYTTD4rxVjkPhf9kqH6hqkU",
+        serviceWorkerRegistration: registration
+      })
+      .then((currentToken) => {
+        if (currentToken) {
+          console.log("✅ FCM Token Ready:", currentToken);
+        } else {
+          console.log("⚠️ No FCM token – Notification permission needed.");
+        }
+      })
+      .catch((err) => console.log("FCM Token Error:", err));
+    })
+    .catch((err) => console.log("Service Worker Error:", err));
+  }
+
+  // Foreground notification handler
+  onMessage(messaging, (payload) => {
+    console.log("📩 Foreground Message:", payload);
+    const notif = document.getElementById('notifBar');
+    if (notif && payload.notification) {
+      notif.querySelector('.notif-title').textContent = '🔔 ' + payload.notification.title;
+      notif.querySelector('.notif-text').textContent = payload.notification.body || '';
+      notif.classList.add('show');
+      setTimeout(() => notif.classList.remove('show'), 6000);
+    }
+  });
+</script>
+
+<!-- Google AdSense Placeholder -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #FF6B35;
+  --primary-dark: #e85520;
+  --secondary: #1A1A2E;
+  --accent: #FFD700;
+  --accent2: #00D4AA;
+  --bg: #f8f9ff;
+  --bg2: #ffffff;
+  --bg3: #f0f2ff;
+  --card-bg: #ffffff;
+  --text: #1A1A2E;
+  --text2: #555577;
+  --text3: #888;
+  --border: #e8eaf6;
+  --shadow: 0 4px 24px rgba(26,26,46,0.10);
+  --shadow-hover: 0 8px 40px rgba(255,107,53,0.18);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --header-h: 70px;
+  --grad1: linear-gradient(135deg, #FF6B35 0%, #FF3CAC 50%, #784BA0 100%);
+  --grad2: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+  --grad3: linear-gradient(135deg, #00D4AA 0%, #1A91FF 100%);
+  --font: 'Baloo 2', 'Noto Sans Devanagari', sans-serif;
+}
+[data-theme="dark"] {
+  --bg: #0d0d1a;
+  --bg2: #12122a;
+  --bg3: #1a1a35;
+  --card-bg: #16162e;
+  --text: #f0f0ff;
+  --text2: #b0b0cc;
+  --text3: #777799;
+  --border: #2a2a4a;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;height:auto;}
+ul{list-style:none;}
+button{cursor:pointer;font-family:var(--font);}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px;}
+
+/* ===== TICKER / NEWS BAR ===== */
+.ticker-bar {
+  background: var(--grad1);
+  color: #fff;
+  padding: 8px 0;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1001;
+}
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.ticker-label {
+  background: rgba(0,0,0,0.25);
+  padding: 2px 14px;
+  white-space: nowrap;
+  border-radius: 0 20px 20px 0;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+.ticker-track {
+  display: flex;
+  gap: 40px;
+  animation: tickerScroll 30s linear infinite;
+  white-space: nowrap;
+}
+@keyframes tickerScroll {
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  transition: background .3s;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: var(--header-h);
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 12px;
+}
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--grad1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(255,107,53,0.4);
+  flex-shrink: 0;
+}
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  background: var(--grad1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+.logo-sub {
+  font-size: 10px;
+  color: var(--text3);
+  -webkit-text-fill-color: var(--text3);
+  font-weight: 500;
+}
+
+/* Search */
+.search-wrap {
+  flex: 1;
+  max-width: 340px;
+  position: relative;
+}
+.search-wrap input {
+  width: 100%;
+  padding: 10px 40px 10px 16px;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  background: var(--bg3);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  outline: none;
+  transition: border .2s, box-shadow .2s;
+}
+.search-wrap input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(255,107,53,0.12);
+}
+.search-wrap input::placeholder { color: var(--text3); }
+.search-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 16px;
+  padding: 4px;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.social-link {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+}
+.social-link:hover { transform: scale(1.15); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.s-tg { background: #229ED9; color: #fff; }
+.s-ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
+.s-fb { background: #1877F2; color: #fff; }
+.s-yt { background: #FF0000; color: #fff; }
+
+.btn-tg {
+  background: var(--grad1);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.btn-tg:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.4); }
+
+.btn-dl {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+[data-theme="dark"] .btn-dl { background: var(--primary); }
+.btn-dl:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,26,46,0.3); }
+
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg3);
+  color: var(--text);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+}
+.theme-toggle:hover { border-color: var(--primary); color: var(--primary); }
+
+/* NAV */
+.nav-bar {
+  background: var(--secondary);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-bar::-webkit-scrollbar{display:none;}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 2px;
+}
+.nav-link {
+  color: rgba(255,255,255,0.8);
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color .2s, background .2s;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-link:hover, .nav-link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+}
+.nav-link.active { color: var(--accent); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all .3s;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu-inner {
+  background: var(--bg2);
+  width: 280px;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-menu-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.mobile-nav-link {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background .2s;
+}
+.mobile-nav-link:hover { background: var(--bg3); }
+
+/* ===== AD PLACEHOLDER ===== */
+.ad-slot {
+  background: var(--bg3);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text3);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.ad-header { height: 90px; margin: 10px 20px; }
+.ad-middle { height: 100px; margin: 0 auto 30px; max-width: 970px; }
+.ad-footer { height: 90px; margin: 0 auto; max-width: 728px; }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--grad2);
+  position: relative;
+  overflow: hidden;
+  padding: 70px 20px 60px;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.hero-blob-1 { width: 400px; height: 400px; background: #FF6B35; top: -100px; left: -100px; }
+.hero-blob-2 { width: 300px; height: 300px; background: #784BA0; bottom: -80px; right: -60px; }
+.hero-blob-3 { width: 250px; height: 250px; background: #00D4AA; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+.hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,215,0,0.15);
+  border: 1px solid rgba(255,215,0,0.4);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  animation: fadeInDown .6s ease;
+}
+.hero h1 {
+  font-size: clamp(28px, 6vw, 54px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  animation: fadeInUp .7s ease;
+}
+.hero h1 span {
+  background: var(--grad1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(14px, 3vw, 18px);
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 28px;
+  animation: fadeInUp .8s ease;
+}
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp .9s ease;
+}
+.btn-primary {
+  background: var(--grad1);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 6px 24px rgba(255,107,53,0.4);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(255,107,53,0.5); }
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.5);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .2s;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-3px); }
+
+.hero-stats {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease;
+}
+.hero-stat {
+  text-align: center;
+  color: #fff;
+}
+.hero-stat-num {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+/* ===== SECTION COMMON ===== */
+.section { padding: 50px 20px; }
+.section-alt { background: var(--bg2); }
+.section-dark { background: var(--grad2); }
+.container { max-width: 1300px; margin: 0 auto; }
+
+.section-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(255,107,53,0.1);
+  padding: 4px 14px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+.section-title span { color: var(--primary); }
+.section-dark .section-title { color: #fff; }
+.section-dark .section-tag { background: rgba(255,215,0,0.15); color: var(--accent); }
+
+/* ===== GRID ===== */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+.grid-8 { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; }
+
+@media(max-width:1100px){ .grid-8{grid-template-columns:repeat(4,1fr);} .grid-6{grid-template-columns:repeat(3,1fr);} .grid-7{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(3,1fr);} .grid-4{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:700px){ .grid-8,.grid-6,.grid-5,.grid-4{grid-template-columns:repeat(2,1fr);} .grid-7{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:400px){ .grid-7{grid-template-columns:repeat(2,1fr);} }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  position: relative;
+  overflow: hidden;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad1);
+  opacity: 0;
+  transition: opacity .25s;
+  z-index: 0;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
+.card:hover::after { opacity: 0.05; }
+.card > * { position: relative; z-index: 1; }
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 12px;
+  transition: transform .25s;
+}
+.card:hover .card-icon { transform: scale(1.15) rotate(-5deg); }
+
+.card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.card-sub {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 3px;
+}
+
+/* Icon colors */
+.ic-orange{ background:rgba(255,107,53,.15); color:#FF6B35; }
+.ic-purple{ background:rgba(120,75,160,.15); color:#784BA0; }
+.ic-blue{ background:rgba(0,112,255,.15); color:#0070FF; }
+.ic-green{ background:rgba(0,212,115,.15); color:#00D473; }
+.ic-teal{ background:rgba(0,212,170,.15); color:#00D4AA; }
+.ic-red{ background:rgba(255,60,60,.15); color:#FF3C3C; }
+.ic-yellow{ background:rgba(255,193,7,.15); color:#FFC107; }
+.ic-pink{ background:rgba(255,60,172,.15); color:#FF3CAC; }
+.ic-navy{ background:rgba(15,52,96,.12); color:#0F3460; }
+.ic-cyan{ background:rgba(0,188,212,.15); color:#00BCD4; }
+
+/* ===== TRENDING SECTION - Pill Style ===== */
+.trend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.trend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  transition: all .2s;
+  position: relative;
+  overflow: hidden;
+}
+.trend-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad1);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.trend-pill:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 6px 20px rgba(255,107,53,0.2);
+  color: var(--primary);
+}
+.trend-pill:hover::before { opacity: 0.06; }
+.trend-pill span { position: relative; }
+.trend-pill .t-num {
+  background: var(--grad1);
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+  position: relative;
+}
+.fire-badge {
+  background: rgba(255,60,60,0.1);
+  color: #FF3C3C;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,60,60,0.2);
+}
+
+/* ===== AI TOOLS SECTION ===== */
+.ai-card {
+  background: var(--grad2);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid rgba(255,255,255,0.08);
+  transition: transform .25s, box-shadow .25s;
+}
+.ai-card::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle, rgba(255,107,53,0.3), transparent 70%);
+  border-radius: 50%;
+}
+.ai-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(255,107,53,0.25); }
+.ai-card-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.ai-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+.ai-card-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,215,0,0.15);
+  border: 1px solid rgba(255,215,0,0.3);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  margin-top: 6px;
+}
+
+/* ===== USEFUL LINKS ===== */
+.link-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.link-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent2);
+  box-shadow: 0 8px 24px rgba(0,212,170,0.15);
+}
+.link-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,var(--accent2),#1A91FF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+}
+.link-card-title { font-size: 12px; font-weight: 700; color: var(--text); }
+.link-card-sub { font-size: 10px; color: var(--text3); }
+
+/* ===== DAILY UPDATE ===== */
+.update-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  transition: all .25s;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.update-card:hover { transform: translateX(4px); border-color: var(--primary); box-shadow: var(--shadow-hover); }
+.update-icon {
+  width: 50px; height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.update-text { flex: 1; }
+.update-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.update-desc { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.update-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+.badge-new { background: rgba(255,60,60,0.1); color: #FF3C3C; }
+.badge-live { background: rgba(0,212,170,0.1); color: #00D4AA; }
+.badge-hot { background: rgba(255,193,7,0.1); color: #FFC107; }
+
+/* Daily update 2-col grid */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media(max-width:600px){ .grid-2 { grid-template-columns:1fr; } }
+
+/* ===== DOWNLOAD ZONE ===== */
+.dl-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+}
+.dl-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--grad1);
+  transform: scaleX(0);
+  transition: transform .25s;
+  transform-origin: left;
+}
+.dl-card:hover::before { transform: scaleX(1); }
+.dl-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.dl-icon { font-size: 36px; margin-bottom: 10px; }
+.dl-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  background: var(--grad1);
+  color: #fff;
+  border: none;
+  padding: 7px 18px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform .2s;
+}
+.dl-btn:hover { transform: scale(1.05); }
+
+/* ===== COURSE CARDS ===== */
+.course-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .25s;
+  overflow: hidden;
+  position: relative;
+}
+.course-card-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.course-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.course-icon { font-size: 32px; margin-bottom: 10px; }
+.course-title { font-size: 13px; font-weight: 700; color: var(--text); }
+.course-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  margin-top: 6px;
+}
+.tag-free { background: rgba(0,212,115,0.1); color: #00D473; }
+.tag-paid { background: rgba(255,107,53,0.1); color: var(--primary); }
+
+/* ===== JOIN BANNER ===== */
+.join-banner {
+  background: var(--grad1);
+  border-radius: var(--radius);
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.join-banner::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 150px; height: 150px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+.join-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: -30px;
+  width: 120px; height: 120px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+.join-title { font-size: clamp(18px,4vw,26px); font-weight: 800; color: #fff; margin-bottom: 8px; }
+.join-sub { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 20px; }
+.join-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.btn-white {
+  background: #fff;
+  color: var(--primary);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ===== PAGES (About, Contact, etc.) ===== */
+.page { display: none; padding: 40px 20px; }
+.page.active { display: block; }
+.page-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+.page-title { font-size: 24px; font-weight: 800; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+.page-card p, .page-card li { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 10px; }
+.page-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin: 18px 0 8px; }
+.page-card ul { padding-left: 20px; list-style: disc; }
+.contact-info { display: flex; flex-direction: column; gap: 14px; }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: var(--bg3);
+  border-radius: var(--radius-sm);
+  transition: all .2s;
+}
+.contact-item:hover { border-left: 3px solid var(--primary); }
+.ci-icon { font-size: 24px; width: 44px; height: 44px; background: var(--card-bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ci-label { font-size: 11px; color: var(--text3); font-weight: 600; text-transform: uppercase; }
+.ci-val { font-size: 14px; font-weight: 700; color: var(--text); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--secondary);
+  color: rgba(255,255,255,0.8);
+  padding: 50px 20px 20px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+@media(max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:500px){ .footer-grid{grid-template-columns:1fr;} }
+
+.footer-logo-text { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.footer-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 16px; }
+.footer-socials { display: flex; gap: 10px; flex-wrap: wrap; }
+.footer-social {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform .2s;
+  text-decoration: none;
+}
+.footer-social:hover { transform: scale(1.15); }
+
+.footer-col-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.footer-links { display: flex; flex-direction: column; gap: 8px; }
+.footer-link {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .2s;
+}
+.footer-link:hover { color: var(--primary); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  max-width: 1300px;
+  margin: 30px auto 0;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+
+.pulse { animation: pulse 2s ease infinite; }
+
+/* ===== BACK TO TOP ===== */
+.back-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: var(--grad1);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255,107,53,0.4);
+  transition: transform .2s;
+  z-index: 999;
+}
+.back-top.show { display: flex; }
+.back-top:hover { transform: translateY(-3px); }
+
+/* ===== MAIN ===== */
+#main-content {}
+#pages-content { display: none; }
+
+/* ===== RESPONSIVE HEADER ===== */
+@media(max-width:900px){
+  .search-wrap{ max-width:200px; }
+  .btn-dl, .social-link.hide-sm { display:none; }
+}
+@media(max-width:700px){
+  .header-top { padding: 0 12px; }
+  .search-wrap { display:none; }
+  .hamburger { display:flex; }
+  .nav-bar { display:none; }
+  .hero { padding: 50px 16px 40px; }
+}
+
+/* Floating notification */
+.notif-bar {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  max-width: 280px;
+  box-shadow: var(--shadow);
+  z-index: 990;
+  display: none;
+  animation: fadeInUp .4s ease;
+}
+.notif-bar.show { display: block; }
+.notif-close { position:absolute; top:8px; right:10px; background:none; border:none; font-size:16px; color:var(--text3); cursor:pointer; }
+.notif-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.notif-text { font-size: 12px; color: var(--text2); }
+
+</style>
+</head>
+<body>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <div class="ticker-label">🔥 TRENDING</div>
+    <div class="ticker-track" id="tickerTrack">
+      <span>🎉 RajaKumar18.in पर आपका स्वागत है!</span>
+      <span>📱 Instagram Bio Generator Available</span>
+      <span>🤖 AI Tools Section Live Now</span>
+      <span>📚 Digital Courses – Free & Paid</span>
+      <span>🎁 Download Zone: Apps, PDFs & More</span>
+      <span>📲 Telegram Join करें: @rajakumar18in</span>
+      <span>🔥 Stylish Name Generator Available</span>
+      <span>💡 Blogging Tips | YouTube Growth Tips</span>
+      <!-- Duplicate for seamless loop -->
+      <span>🎉 RajaKumar18.in पर आपका स्वागत है!</span>
+      <span>📱 Instagram Bio Generator Available</span>
+      <span>🤖 AI Tools Section Live Now</span>
+      <span>📚 Digital Courses – Free & Paid</span>
+      <span>🎁 Download Zone: Apps, PDFs & More</span>
+      <span>📲 Telegram Join करें: @rajakumar18in</span>
+      <span>🔥 Stylish Name Generator Available</span>
+      <span>💡 Blogging Tips | YouTube Growth Tips</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="logo-wrap">
+      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="logo-icon">R</div>
+      <div>
+        <div class="logo-text">RajaKumar18.in</div>
+        <div class="logo-sub">India's Premium Digital Platform</div>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="🔍 खोजें – Tools, Courses, AI..." onkeydown="handleSearch(event)">
+      <button class="search-btn" onclick="doSearch()">🔍</button>
+    </div>
+
+    <div class="header-actions">
+      <a href="https://www.instagram.com/rajakumar18.in" target="_blank" class="social-link s-ig hide-sm" title="Instagram">📸</a>
+      <a href="https://www.facebook.com/1cpk97rnk1" target="_blank" class="social-link s-fb hide-sm" title="Facebook">📘</a>
+      <a href="https://t.me/rajakumar18in" target="_blank" class="social-link s-tg" title="Telegram">✈️</a>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Dark/Light Mode" id="themeBtn">🌙</button>
+      <a href="https://t.me/rajakumar18in" target="_blank" class="btn-tg">✈️ Join Now</a>
+      <button class="btn-dl" onclick="showPage('download')">⬇️ Download</button>
+    </div>
+  </div>
+
+  <!-- NAV BAR -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="#" class="nav-link active" onclick="showHome()">🏠 Home</a>
+      <a href="#" class="nav-link" onclick="scrollToSection('trending')">🔥 Trending</a>
+      <a href="#" class="nav-link" onclick="scrollToSection('tools')">🛠️ Free Tools</a>
+      <a href="#" class="nav-link" onclick="scrollToSection('courses')">📚 Courses</a>
+      <a href="#" class="nav-link" onclick="scrollToSection('ai')">🤖 AI Tools</a>
+      <a href="#" class="nav-link" onclick="scrollToSection('links')">🔗 Useful Links</a>
+      <a href="#" class="nav-link" onclick="scrollToSection('daily')">📰 Daily Update</a>
+      <a href="#" class="nav-link" onclick="scrollToSection('download')">⬇️ Download</a>
+      <a href="#" class="nav-link" onclick="showPage('about')">ℹ️ About</a>
+      <a href="#" class="nav-link" onclick="showPage('contact')">📞 Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
+    <a href="#" class="mobile-nav-link" onclick="showHome();toggleMobileMenu()">🏠 Home</a>
+    <a href="#" class="mobile-nav-link" onclick="scrollToSection('trending');toggleMobileMenu()">🔥 Trending</a>
+    <a href="#" class="mobile-nav-link" onclick="scrollToSection('tools');toggleMobileMenu()">🛠️ Free Tools</a>
+    <a href="#" class="mobile-nav-link" onclick="scrollToSection('courses');toggleMobileMenu()">📚 Courses</a>
+    <a href="#" class="mobile-nav-link" onclick="scrollToSection('ai');toggleMobileMenu()">🤖 AI Tools</a>
+    <a href="#" class="mobile-nav-link" onclick="scrollToSection('links');toggleMobileMenu()">🔗 Useful Links</a>
+    <a href="#" class="mobile-nav-link" onclick="scrollToSection('daily');toggleMobileMenu()">📰 Daily Update</a>
+    <a href="#" class="mobile-nav-link" onclick="scrollToSection('download');toggleMobileMenu()">⬇️ Download</a>
+    <a href="#" class="mobile-nav-link" onclick="showPage('about');toggleMobileMenu()">ℹ️ About Us</a>
+    <a href="#" class="mobile-nav-link" onclick="showPage('contact');toggleMobileMenu()">📞 Contact Us</a>
+    <a href="#" class="mobile-nav-link" onclick="showPage('privacy');toggleMobileMenu()">🔒 Privacy Policy</a>
+    <a href="#" class="mobile-nav-link" onclick="showPage('disclaimer');toggleMobileMenu()">⚠️ Disclaimer</a>
+    <a href="#" class="mobile-nav-link" onclick="showPage('terms');toggleMobileMenu()">📄 Terms & Conditions</a>
+    <a href="#" class="mobile-nav-link" onclick="showPage('dmca');toggleMobileMenu()">©️ DMCA Policy</a>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="https://t.me/rajakumar18in" target="_blank" class="btn-tg">✈️ Telegram</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER AD ============ -->
+<div class="container">
+  <div class="ad-slot ad-header">
+    <!-- Google AdSense Header Ad 728x90 -->
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
+    📢 Advertisement Space – Header (728×90) – AdSense Ready
+  </div>
+</div>
+
+<!-- ============ MAIN CONTENT ============ -->
+<div id="main-content">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🇮🇳 India's #1 Digital Platform</div>
+      <h1>Welcome To <span>RajaKumar18.in</span></h1>
+      <p class="hero-sub">India's Premium Digital Multi Purpose Website<br>Tools • Courses • AI • Shayari • Daily Updates – <strong style="color:var(--accent)">सब कुछ एक जगह!</strong></p>
+      <div class="hero-btns">
+        <a href="#tools" class="btn-primary pulse" onclick="scrollToSection('tools')">🛠️ Free Tools देखें</a>
+        <a href="https://t.me/rajakumar18in" target="_blank" class="btn-outline">✈️ Telegram Join करें</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-label">Free Tools</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">10K+</div><div class="hero-stat-label">Users Daily</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">100+</div><div class="hero-stat-label">Content Posts</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">8+</div><div class="hero-stat-label">Courses</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TRENDING SECTION ====== -->
+  <section class="section section-alt" id="trending">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">🔥 Trending Now</div>
+        <h2 class="section-title">लोग क्या ज्यादा <span>सर्च कर रहे हैं?</span></h2>
+      </div>
+      <div class="trend-grid">
+        <div class="trend-pill"><span class="t-num">1</span><span>💬 Photo Comment</span><span class="fire-badge">🔥 Hot</span></div>
+        <div class="trend-pill"><span class="t-num">2</span><span>✨ Stylish Name</span><span class="fire-badge">🔥 Hot</span></div>
+        <div class="trend-pill"><span class="t-num">3</span><span>❤️ Heart Text</span></div>
+        <div class="trend-pill"><span class="t-num">4</span><span>📸 Instagram Bio</span><span class="fire-badge">🔥 Hot</span></div>
+        <div class="trend-pill"><span class="t-num">5</span><span>🎬 YouTube Tags</span></div>
+        <div class="trend-pill"><span class="t-num">6</span><span>💫 Viral Caption</span><span class="fire-badge">🔥 Hot</span></div>
+        <div class="trend-pill"><span class="t-num">7</span><span>💕 Love Shayari</span></div>
+        <div class="trend-pill"><span class="t-num">8</span><span>🎂 Birthday Wish</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FREE TOOLS SECTION ====== -->
+  <section class="section" id="tools">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">🛠️ 100% Free</div>
+        <h2 class="section-title">Free <span>Tools Section</span></h2>
+      </div>
+      <div class="grid-4">
+        <div class="card"><div class="card-icon ic-blue">📷</div><div class="card-title">QR Scanner</div><div class="card-sub">Scan & Generate QR</div></div>
+        <div class="card"><div class="card-icon ic-red">📄</div><div class="card-title">PDF Tools</div><div class="card-sub">Merge, Split & Convert</div></div>
+        <div class="card"><div class="card-icon ic-green">🖼️</div><div class="card-title">Image Resize</div><div class="card-sub">Resize & Compress</div></div>
+        <div class="card"><div class="card-icon ic-orange">🎂</div><div class="card-title">Age Calculator</div><div class="card-sub">Date of Birth से Age</div></div>
+        <div class="card"><div class="card-icon ic-purple">💰</div><div class="card-title">EMI Calculator</div><div class="card-sub">Loan EMI निकालें</div></div>
+        <div class="card"><div class="card-icon ic-teal">📝</div><div class="card-title">Resume Maker</div><div class="card-sub">Professional Resume</div></div>
+        <div class="card"><div class="card-icon ic-yellow">🎙️</div><div class="card-title">Voice Typing</div><div class="card-sub">बोलकर टाइप करें</div></div>
+        <div class="card"><div class="card-icon ic-pink">🔑</div><div class="card-title">Password Generator</div><div class="card-sub">Strong Password बनाएं</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIDDLE AD -->
+  <div class="container">
+    <div class="ad-slot ad-middle">📢 Advertisement Space – Middle (970×90) – AdSense Ready</div>
+  </div>
+
+  <!-- ====== DIGITAL COURSES ====== -->
+  <section class="section section-alt" id="courses">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">📚 Learn & Earn</div>
+        <h2 class="section-title">Digital <span>Courses Section</span></h2>
+      </div>
+      <div class="grid-4">
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#FF6B35,#FF3CAC)"></div>
+          <div class="course-icon">🤖</div>
+          <div class="course-title">AI से कमाई</div>
+          <span class="course-tag tag-free">FREE</span>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#FF0000,#FF6B35)"></div>
+          <div class="course-icon">📺</div>
+          <div class="course-title">YouTube Growth</div>
+          <span class="course-tag tag-free">FREE</span>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#E1306C,#784BA0)"></div>
+          <div class="course-icon">🎬</div>
+          <div class="course-title">Instagram Reels</div>
+          <span class="course-tag tag-paid">PAID</span>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#00D4AA,#1A91FF)"></div>
+          <div class="course-icon">💸</div>
+          <div class="course-title">Affiliate Marketing</div>
+          <span class="course-tag tag-paid">PAID</span>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#FFC107,#FF6B35)"></div>
+          <div class="course-icon">✍️</div>
+          <div class="course-title">Blogging A to Z</div>
+          <span class="course-tag tag-free">FREE</span>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#0070FF,#00D4AA)"></div>
+          <div class="course-icon">🌐</div>
+          <div class="course-title">Website Making</div>
+          <span class="course-tag tag-free">FREE</span>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#784BA0,#FF3CAC)"></div>
+          <div class="course-icon">🎨</div>
+          <div class="course-title">Canva Design</div>
+          <span class="course-tag tag-free">FREE</span>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top" style="background:linear-gradient(90deg,#00BCD4,#0070FF)"></div>
+          <div class="course-icon">📱</div>
+          <div class="course-title">Mobile Editing</div>
+          <span class="course-tag tag-paid">PAID</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== AI TOOLS SECTION ====== -->
+  <section class="section section-dark" id="ai">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">🤖 Powered by AI</div>
+        <h2 class="section-title" style="color:#fff">AI <span style="color:var(--accent)">Tools Section</span></h2>
+      </div>
+      <div class="grid-5">
+        <div class="ai-card">
+          <div class="ai-card-icon">🤖</div>
+          <div class="ai-card-title">ChatGPT Guide</div>
+          <div class="ai-card-sub">Complete Tutorial</div>
+          <div class="ai-badge">⭐ Popular</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🎨</div>
+          <div class="ai-card-title">AI Image Generator</div>
+          <div class="ai-card-sub">Generate Amazing Images</div>
+          <div class="ai-badge">🔥 Hot</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🎬</div>
+          <div class="ai-card-title">AI Video Maker</div>
+          <div class="ai-card-sub">Text to Video AI</div>
+          <div class="ai-badge">✨ New</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🎙️</div>
+          <div class="ai-card-title">AI Voice Tool</div>
+          <div class="ai-card-sub">Voice Clone & TTS</div>
+          <div class="ai-badge">⭐ Popular</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🏷️</div>
+          <div class="ai-card-title">AI Logo Maker</div>
+          <div class="ai-card-sub">Free Logo Design</div>
+          <div class="ai-badge">🆓 Free</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== USEFUL LINKS SECTION ====== -->
+  <section class="section section-alt" id="links">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">🔗 Govt & Daily Use</div>
+        <h2 class="section-title">Useful <span>Links Section</span></h2>
+      </div>
+      <div class="grid-7">
+        <div class="link-card"><div class="link-card-icon">🆔</div><div class="link-card-title">Aadhaar Card</div><div class="link-card-sub">UIDAI Portal</div></div>
+        <div class="link-card"><div class="link-card-icon">🪪</div><div class="link-card-title">PAN Card</div><div class="link-card-sub">Income Tax</div></div>
+        <div class="link-card"><div class="link-card-icon">🚆</div><div class="link-card-title">Railway Booking</div><div class="link-card-sub">IRCTC Ticket</div></div>
+        <div class="link-card"><div class="link-card-icon">📱</div><div class="link-card-title">Recharge</div><div class="link-card-sub">Mobile & DTH</div></div>
+        <div class="link-card"><div class="link-card-icon">🏛️</div><div class="link-card-title">Govt Scheme</div><div class="link-card-sub">PM Yojana</div></div>
+        <div class="link-card"><div class="link-card-icon">📋</div><div class="link-card-title">Result Check</div><div class="link-card-sub">Board & Govt Jobs</div></div>
+        <div class="link-card"><div class="link-card-icon">⚡</div><div class="link-card-title">Electricity Bill</div><div class="link-card-sub">Pay Online</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIDEBAR + DAILY UPDATE COMBO -->
+  <section class="section" id="daily">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;">
+        <div>
+          <div class="section-head" style="text-align:left;">
+            <div class="section-tag">📰 Today's Updates</div>
+            <h2 class="section-title">Daily <span>Update Section</span></h2>
+          </div>
+          <div class="grid-2">
+            <div class="update-card"><div class="update-icon ic-orange">🏖️</div><div class="update-text"><div class="update-title">Today Holiday</div><div class="update-desc">आज का Holiday Check करें</div></div><span class="update-badge badge-live">LIVE</span></div>
+            <div class="update-card"><div class="update-icon ic-blue">📰</div><div class="update-text"><div class="update-title">Latest News</div><div class="update-desc">India & World की खबरें</div></div><span class="update-badge badge-new">NEW</span></div>
+            <div class="update-card"><div class="update-icon ic-green">📱</div><div class="update-text"><div class="update-title">Trending App</div><div class="update-desc">Top Viral Apps of Week</div></div><span class="update-badge badge-hot">HOT</span></div>
+            <div class="update-card"><div class="update-icon ic-pink">🎊</div><div class="update-text"><div class="update-title">Festival Update</div><div class="update-desc">Upcoming Festivals & Events</div></div><span class="update-badge badge-live">LIVE</span></div>
+            <div class="update-card"><div class="update-icon ic-yellow">💰</div><div class="update-text"><div class="update-title">Offer Zone</div><div class="update-desc">Best Deals & Discounts</div></div><span class="update-badge badge-hot">HOT</span></div>
+            <div class="update-card"><div class="update-icon ic-teal">🔔</div><div class="update-text"><div class="update-title">Govt Updates</div><div class="update-desc">Sarkari Yojana & Jobs</div></div><span class="update-badge badge-new">NEW</span></div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR AD -->
+        <div>
+          <div class="ad-slot" style="height:600px;border-radius:var(--radius);flex-direction:column;gap:8px;">
+            📢 Sidebar Ad<br><span style="font-size:10px;">(300×600) AdSense</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== DOWNLOAD ZONE ====== -->
+  <section class="section section-alt" id="download">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">⬇️ Free Downloads</div>
+        <h2 class="section-title">Download <span>Zone</span></h2>
+      </div>
+      <div class="grid-4">
+        <div class="dl-card"><div class="dl-icon">📱</div><div class="dl-title">App Download</div><div class="dl-btn">⬇️ Download</div></div>
+        <div class="dl-card"><div class="dl-icon">📄</div><div class="dl-title">PDF Download</div><div class="dl-btn">⬇️ Download</div></div>
+        <div class="dl-card"><div class="dl-icon">📚</div><div class="dl-title">Course Notes</div><div class="dl-btn">⬇️ Download</div></div>
+        <div class="dl-card"><div class="dl-icon">🎨</div><div class="dl-title">Templates Download</div><div class="dl-btn">⬇️ Download</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN BANNER -->
+  <section class="section">
+    <div class="container">
+      <div class="join-banner">
+        <div class="join-title">🚀 RajaKumar18.in Community Join करें!</div>
+        <div class="join-sub">Telegram पर 10,000+ लोग पहले से जुड़े हुए हैं। आप भी Join करें और daily updates पाएं।</div>
+        <div class="join-btns">
+          <a href="https://t.me/rajakumar18in" target="_blank" class="btn-white">✈️ Telegram Join</a>
+          <a href="mailto:rajahribabakumar@gmail.com" class="btn-white">📧 Email करें</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER AD -->
+  <div class="container" style="padding:0 20px 20px;">
+    <div class="ad-slot ad-footer">📢 Footer Ad (728×90) – AdSense Ready</div>
+  </div>
+
+</div><!-- end main-content -->
+
+<!-- ============ PAGES CONTENT ============ -->
+<div id="pages-content">
+
+  <!-- ABOUT PAGE -->
+  <div class="page" id="page-about">
+    <div class="container">
+      <div class="page-card">
+        <div class="page-title">ℹ️ About Us – हमारे बारे में</div>
+        <p><strong>RajaKumar18.in</strong> एक डिजिटल प्लेटफॉर्म है जहाँ यूजर को <strong>Tools, Courses, AI जानकारी, Social Media Tips, Blogging Tips</strong> और रोजमर्रा के काम की जानकारी मिलती है।</p>
+        <p>हमारा लक्ष्य है कि हर भारतीय को डिजिटल दुनिया की जानकारी हिंदी में, आसान भाषा में, बिल्कुल फ्री मिले।</p>
+        <h3>🎯 हमारी Mission</h3>
+        <p>India को Digital रूप से Empower करना – हर गाँव, हर शहर, हर घर तक सही जानकारी पहुँचाना।</p>
+        <h3>📌 हम क्या Provide करते हैं?</h3>
+        <ul>
+          <li>✅ Free Online Tools (QR Scanner, PDF, Age Calc, etc.)</li>
+          <li>✅ Digital Courses (Free & Paid)</li>
+          <li>✅ AI Tools की जानकारी</li>
+          <li>✅ Social Media Growth Tips</li>
+          <li>✅ Blogging & YouTube Tips</li>
+          <li>✅ Government Useful Links</li>
+          <li>✅ Daily Updates & Trending Content</li>
+          <li>✅ Download Zone – Apps, PDFs, Templates</li>
+        </ul>
+        <h3>📧 Contact</h3>
+        <p>Email: <a href="mailto:rajahribabakumar@gmail.com" style="color:var(--primary)">rajahribabakumar@gmail.com</a></p>
+        <p>Website: <a href="https://rajakumar18.in" style="color:var(--primary)">https://rajakumar18.in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div class="page" id="page-contact">
+    <div class="container">
+      <div class="page-card">
+        <div class="page-title">📞 Contact Us – हमसे संपर्क करें</div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="ci-icon">📧</div>
+            <div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:rajahribabakumar@gmail.com" style="color:var(--primary)">rajahribabakumar@gmail.com</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✈️</div>
+            <div><div class="ci-label">Telegram Channel</div><div class="ci-val"><a href="https://t.me/rajakumar18in" target="_blank" style="color:var(--primary)">https://t.me/rajakumar18in</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📸</div>
+            <div><div class="ci-label">Instagram</div><div class="ci-val"><a href="https://www.instagram.com/rajakumar18.in" target="_blank" style="color:var(--primary)">rajakumar18.in</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📘</div>
+            <div><div class="ci-label">Facebook</div><div class="ci-val"><a href="https://www.facebook.com/1cpk97rnk1" target="_blank" style="color:var(--primary)">1cpk97rnk1</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🌐</div>
+            <div><div class="ci-label">Website</div><div class="ci-val"><a href="https://rajakumar18.in" style="color:var(--primary)">https://rajakumar18.in</a></div></div>
+          </div>
+        </div>
+        <p style="margin-top:20px;font-size:13px;color:var(--text3);">⏰ Response Time: 24-48 Hours के अंदर reply मिलेगा।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY -->
+  <div class="page" id="page-privacy">
+    <div class="container">
+      <div class="page-card">
+        <div class="page-title">🔒 Privacy Policy</div>
+        <p><strong>Last Updated:</strong> 2025</p>
+        <p>RajaKumar18.in आपकी Privacy को बहुत महत्व देता है। यह Privacy Policy बताती है कि हम आपकी जानकारी कैसे collect, use और protect करते हैं।</p>
+        <h3>Information We Collect</h3>
+        <p>हम website usage data (via Google Analytics & Firebase), browser type, और IP address collect कर सकते हैं। हम कोई personal data बिना आपकी permission के नहीं collect करते।</p>
+        <h3>Cookies</h3>
+        <p>हम Cookies का use करते हैं जो आपके browsing experience को बेहतर बनाती हैं। आप browser settings से cookies disable कर सकते हैं।</p>
+        <h3>Third Party</h3>
+        <p>हम Google AdSense और Google Analytics use करते हैं। इनकी अपनी Privacy Policy है। हम इन third-party services के data collection के लिए responsible नहीं हैं।</p>
+        <h3>Contact</h3>
+        <p>किसी भी सवाल के लिए: <a href="mailto:rajahribabakumar@gmail.com" style="color:var(--primary)">rajahribabakumar@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="page" id="page-disclaimer">
+    <div class="container">
+      <div class="page-card">
+        <div class="page-title">⚠️ Disclaimer</div>
+        <p>RajaKumar18.in पर दी गई जानकारी केवल educational और informational purpose के लिए है।</p>
+        <h3>No Professional Advice</h3>
+        <p>इस website पर दी गई कोई भी जानकारी professional financial, legal या medical advice नहीं है। किसी भी महत्वपूर्ण decision के लिए expert की सलाह लें।</p>
+        <h3>Accuracy</h3>
+        <p>हम accuracy बनाए रखने की कोशिश करते हैं, लेकिन किसी भी जानकारी की completeness या correctness की guarantee नहीं देते।</p>
+        <h3>External Links</h3>
+        <p>हमारी website में दिए गए external links के content के लिए हम responsible नहीं हैं।</p>
+        <p>Contact: <a href="mailto:rajahribabakumar@gmail.com" style="color:var(--primary)">rajahribabakumar@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS & CONDITIONS -->
+  <div class="page" id="page-terms">
+    <div class="container">
+      <div class="page-card">
+        <div class="page-title">📄 Terms & Conditions</div>
+        <p>RajaKumar18.in को access करके आप इन Terms & Conditions से agree करते हैं।</p>
+        <h3>Use of Content</h3>
+        <p>इस website का content केवल personal use के लिए है। बिना permission के commercial use, copying या redistribution prohibited है।</p>
+        <h3>User Conduct</h3>
+        <ul>
+          <li>Website को harmful purpose के लिए use न करें।</li>
+          <li>Spam या abusive content post न करें।</li>
+          <li>किसी भी illegal activity के लिए website use न करें।</li>
+        </ul>
+        <h3>Changes to Terms</h3>
+        <p>हम इन Terms को कभी भी बिना notice के change कर सकते हैं।</p>
+        <h3>Governing Law</h3>
+        <p>ये Terms Indian Law के अनुसार governed हैं।</p>
+        <p>Contact: <a href="mailto:rajahribabakumar@gmail.com" style="color:var(--primary)">rajahribabakumar@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DMCA POLICY -->
+  <div class="page" id="page-dmca">
+    <div class="container">
+      <div class="page-card">
+        <div class="page-title">©️ DMCA Policy</div>
+        <p>RajaKumar18.in intellectual property rights का सम्मान करता है और DMCA (Digital Millennium Copyright Act) का पालन करता है।</p>
+        <h3>Copyright Infringement Notice</h3>
+        <p>अगर आपको लगता है कि हमारी website पर आपका copyrighted content है, तो कृपया हमें email करें:</p>
+        <p><a href="mailto:rajahribabakumar@gmail.com" style="color:var(--primary)">rajahribabakumar@gmail.com</a></p>
+        <h3>DMCA Notice में यह Include करें:</h3>
+        <ul>
+          <li>आपके copyrighted work का description</li>
+          <li>जिस URL पर वो content है</li>
+          <li>आपकी contact information</li>
+          <li>आपका signature (electronic)</li>
+        </ul>
+        <h3>Response Time</h3>
+        <p>हम DMCA notice मिलने के 48-72 घंटे के अंदर action लेंगे।</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end pages-content -->
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-text">🌐 RajaKumar18.in</div>
+      <div class="footer-desc">India's Premium Digital Multi Purpose Website. Tools, Courses, AI, Shayari, Government Links – सब कुछ एक जगह! हमारे साथ Digital India बनाएं।</div>
+      <div class="footer-socials">
+        <a href="https://t.me/rajakumar18in" target="_blank" class="footer-social s-tg" title="Telegram">✈️</a>
+        <a href="https://www.instagram.com/rajakumar18.in" target="_blank" class="footer-social s-ig" title="Instagram">📸</a>
+        <a href="https://www.facebook.com/1cpk97rnk1" target="_blank" class="footer-social s-fb" title="Facebook">📘</a>
+        <a href="mailto:rajahribabakumar@gmail.com" class="footer-social" style="background:#EA4335;color:#fff;" title="Email">📧</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">🔗 Quick Links</div>
+      <div class="footer-links">
+        <a href="#" class="footer-link" onclick="showHome()">🏠 Home</a>
+        <a href="#" class="footer-link" onclick="scrollToSection('tools')">🛠️ Free Tools</a>
+        <a href="#" class="footer-link" onclick="scrollToSection('courses')">📚 Courses</a>
+        <a href="#" class="footer-link" onclick="scrollToSection('ai')">🤖 AI Tools</a>
+        <a href="#" class="footer-link" onclick="scrollToSection('download')">⬇️ Download</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">📄 Pages</div>
+      <div class="footer-links">
+        <a href="#" class="footer-link" onclick="showPage('about')">ℹ️ About Us</a>
+        <a href="#" class="footer-link" onclick="showPage('contact')">📞 Contact Us</a>
+        <a href="#" class="footer-link" onclick="showPage('privacy')">🔒 Privacy Policy</a>
+        <a href="#" class="footer-link" onclick="showPage('disclaimer')">⚠️ Disclaimer</a>
+        <a href="#" class="footer-link" onclick="showPage('terms')">📄 Terms & Conditions</a>
+        <a href="#" class="footer-link" onclick="showPage('dmca')">©️ DMCA Policy</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">📞 Contact Info</div>
+      <div class="footer-links">
+        <a href="mailto:rajahribabakumar@gmail.com" class="footer-link">📧 rajahribabakumar@gmail.com</a>
+        <a href="https://t.me/rajakumar18in" class="footer-link" target="_blank">✈️ t.me/rajakumar18in</a>
+        <a href="https://rajakumar18.in" class="footer-link" target="_blank">🌐 rajakumar18.in</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2025 <strong style="color:var(--primary)">RajaKumar18.in</strong> | All Rights Reserved | Made with ❤️ in India 🇮🇳</p>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">⬆️</button>
+
+<!-- NOTIFICATION BAR -->
+<div class="notif-bar" id="notifBar">
+  <button class="notif-close" onclick="document.getElementById('notifBar').classList.remove('show')">✕</button>
+  <div class="notif-title">🔔 New Content Available!</div>
+  <div class="notif-text">AI Tools Section में नया content add किया गया है! Check करें।</div>
+</div>
+
+<script>
+// ===== THEME TOGGLE =====
+function toggleTheme(){
+  const html=document.documentElement;
+  const btn=document.getElementById('themeBtn');
+  if(html.getAttribute('data-theme')==='dark'){
+    html.setAttribute('data-theme','light');
+    btn.textContent='🌙';
+    localStorage.setItem('theme','light');
+  } else {
+    html.setAttribute('data-theme','dark');
+    btn.textContent='☀️';
+    localStorage.setItem('theme','dark');
+  }
+}
+// Load saved theme
+(function(){
+  const t=localStorage.getItem('theme');
+  if(t==='dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    document.getElementById('themeBtn').textContent='☀️';
+  }
+})();
+
+// ===== MOBILE MENU =====
+function toggleMobileMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+document.getElementById('mobileMenu').addEventListener('click',function(e){
+  if(e.target===this) this.classList.remove('open');
+});
+
+// ===== NAVIGATION =====
+function showHome(){
+  document.getElementById('main-content').style.display='block';
+  document.getElementById('pages-content').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showPage(name){
+  document.getElementById('main-content').style.display='none';
+  document.getElementById('pages-content').style.display='block';
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg=document.getElementById('page-'+name);
+  if(pg) pg.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function scrollToSection(id){
+  showHome();
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  },100);
+}
+
+// ===== SEARCH =====
+function handleSearch(e){ if(e.key==='Enter') doSearch(); }
+function doSearch(){
+  const q=document.getElementById('searchInput').value.trim();
+  if(q) window.open('https://www.google.com/search?q=site:rajakumar18.in+'+encodeURIComponent(q),'_blank');
+}
+
+// ===== BACK TO TOP =====
+window.addEventListener('scroll',function(){
+  const btn=document.getElementById('backTop');
+  if(window.scrollY>300) btn.classList.add('show');
+  else btn.classList.remove('show');
+});
+
+// ===== NOTIFICATION =====
+setTimeout(()=>{
+  document.getElementById('notifBar').classList.add('show');
+  setTimeout(()=>document.getElementById('notifBar').classList.remove('show'),6000);
+},4000);
+
+// ===== FIREBASE PUSH NOTIFICATION =====
+// Keys already configured – ready to use!
+
+
+// ===== CARD CLICK (add your links here) =====
+document.querySelectorAll('.card,.trend-pill,.ai-card,.link-card,.dl-card,.course-card,.update-card').forEach(c=>{
+  c.addEventListener('click',function(){
+    // Add your link/URL here for each card
+    // Example: window.open('https://your-link.com','_blank');
+  });
+});
+</script>
+
+</body>
+</html>
