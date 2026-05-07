@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raja AI Official — Free AI Tools by Raja Kumar</title>
+<meta name="description" content="Raja AI Official — Free Viral Content Generator & Digital Tools by Raja Kumar. Social media growth ke liye best AI tools 2026.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap');
+
+  :root {
+    --blue: #1a73e8;
+    --blue-dark: #1558b0;
+    --blue-light: #e8f0fe;
+    --green: #34a853;
+    --bg: #f8f9fa;
+    --white: #ffffff;
+    --text: #202124;
+    --text-muted: #5f6368;
+    --border: #e0e0e0;
+    --radius: 12px;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+  .nav-brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .nav-brand span { color: #34a853; }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-links button {
+    background: none;
+    border: none;
+    padding: 7px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .nav-links button:hover { background: var(--blue-light); color: var(--blue); }
+  .nav-links button.active { background: var(--blue-light); color: var(--blue); }
+
+  /* PAGES */
+  .page { display: none; max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+    background: linear-gradient(135deg, #e8f0fe 0%, #f0f7ff 100%);
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(26,115,232,0.07);
+    border-radius: 50%;
+  }
+  .hero h1 { font-size: 28px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+  .hero p { color: var(--text-muted); font-size: 14px; max-width: 500px; margin: 0 auto 1rem; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+
+  /* TOOL CARD */
+  .tool-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  .tool-card h2 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tool-card .subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+
+  /* CHIPS */
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .chip {
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    border: 1px solid #c5d9f8;
+    border-radius: 20px;
+    padding: 5px 13px;
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chip:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+  /* INPUT */
+  .input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+  .input-row input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .input-row input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,115,232,0.12); }
+  .input-row input::placeholder { color: #bbb; }
+  .btn-generate {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-generate:hover { background: var(--blue-dark); }
+  .btn-generate:active { transform: scale(0.97); }
+
+  /* RESULT */
+  .result-box {
+    background: #f8fbff;
+    border: 1.5px solid #c5d9f8;
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    font-size: 14px;
+    line-height: 1.85;
+    white-space: pre-wrap;
+    margin-top: 10px;
+    display: none;
+    color: var(--text);
+    font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  }
+  .result-actions {
+    display: none;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .btn-sm {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .btn-sm:hover { background: var(--bg); border-color: var(--blue); color: var(--blue); }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--blue-light);
+    color: var(--text);
+  }
+
+  /* INFO CARD */
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+  }
+
+  /* ABOUT */
+  .avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+  .about-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1rem; }
+  .about-name { font-size: 17px; font-weight: 600; }
+  .about-role { font-size: 13px; color: var(--text-muted); }
+  .about-text { font-size: 14px; color: var(--text-muted); line-height: 1.85; }
+  .about-text + .about-text { margin-top: 10px; }
+
+  /* CONTACT */
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-row .icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .contact-row a { color: var(--blue); text-decoration: none; font-weight: 500; }
+  .contact-row a:hover { text-decoration: underline; }
+  .contact-label { font-size: 11px; color: var(--text-muted); display: block; }
+
+  /* SOCIAL BUTTONS */
+  .social-section { margin-top: 1.2rem; }
+  .social-section h3 { font-size: 14px; font-weight: 600; margin-bottom: 10px; color: var(--text-muted); }
+  .social-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .social-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .fb { background: #1877f2; color: white; }
+  .ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+  .yt { background: #ff0000; color: white; }
+  .wa { background: #25d366; color: white; }
+
+  /* POLICY */
+  .policy-block { margin-bottom: 1.4rem; }
+  .policy-block h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--blue-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .policy-block p { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+  .policy-divider { border: none; border-top: 1px solid var(--border); margin: 1.2rem 0; }
+
+  /* FOOTER */
+  footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2rem;
+  }
+  footer a { color: var(--blue); text-decoration: none; }
+
+  /* LOADING ANIMATION */
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .loading { animation: pulse 1.2s infinite; }
+
+  /* MOBILE */
+  @media (max-width: 540px) {
+    .nav-brand { font-size: 15px; }
+    .nav-links button { padding: 6px 8px; font-size: 12px; }
+    .hero h1 { font-size: 22px; }
+    .input-row { flex-direction: column; }
+    .btn-generate { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#" onclick="showPage('home')">
+      🤖 Raja AI <span>Official</span>
+    </a>
+    <div class="nav-links">
+      <button class="active" onclick="showPage('home')">🏠 Home</button>
+      <button onclick="showPage('about')">👤 About</button>
+      <button onclick="showPage('contact')">📞 Contact</button>
+      <button onclick="showPage('policy')">📜 Policy</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div class="hero-badge">✨ FREE AI TOOLS 2026</div>
+    <h1>🚀 Raja AI Official</h1>
+    <p>Social media growth के लिए free advanced AI tools & viral content solutions — by Raja Kumar</p>
+  </div>
+
+  <div class="tool-card">
+    <h2>⚡ Viral Content Generator</h2>
+    <p class="subtitle">Topic चुनें या खुद लिखें — instant viral content पाएं!</p>
+
+    <div class="chips">
+      <button class="chip" onclick="fillTopic('YouTube Growth')">▶️ YouTube</button>
+      <button class="chip" onclick="fillTopic('Earning Money Online')">💰 Earning</button>
+      <button class="chip" onclick="fillTopic('Jobs Career')">💼 Jobs</button>
+      <button class="chip" onclick="fillTopic('Shayari Love')">❤️ Shayari</button>
+      <button class="chip" onclick="fillTopic('Cricket Dream11')">🏏 Cricket</button>
+      <button class="chip" onclick="fillTopic('Tech Mobile Tips')">📱 Tech</button>
+      <button class="chip" onclick="fillTopic('Recipe Food')">🍛 Recipe</button>
+      <button class="chip" onclick="fillTopic('Motivation')">🔥 Motivation</button>
+      <button class="chip" onclick="fillTopic('Gaming Free Fire PUBG')">🎮 Gaming</button>
+      <button class="chip" onclick="fillTopic('Education Study Tips')">📚 Education</button>
+    </div>
+
+    <div class="input-row">
+      <input type="text" id="topicInput" placeholder="अपना topic यहाँ लिखें... (e.g. YouTube Growth)" />
+      <button class="btn-generate" onclick="generateContent()">✨ Generate</button>
+    </div>
+
+    <div id="resultBox" class="result-box"></div>
+
+    <div id="resultActions" class="result-actions">
+      <button class="btn-sm" onclick="copyResult()">📋 Copy करें</button>
+      <button class="btn-sm" onclick="generateContent()">🔄 New Content</button>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+  <div class="section-title">👤 About Us</div>
+  <div class="info-card">
+    <div class="about-header">
+      <div class="avatar">RK</div>
+      <div>
+        <div class="about-name">Raja Kumar</div>
+        <div class="about-role">Digital Creator & Marketing Professional</div>
+      </div>
+    </div>
+    <p class="about-text">
+      नमस्ते! मैं <strong>Raja Kumar</strong> हूँ — एक Digital Marketing Professional और Content Creator। मुझे social media, content creation, और digital growth strategies में गहरी रुचि है।
+    </p>
+    <p class="about-text" style="margin-top:10px">
+      <strong>Raja AI Official</strong> का मिशन है — 2026 में हर किसी को <em>free, advanced AI tools</em> और digital solutions देना, जिससे वे social media पर grow कर सकें। यह platform YouTube creators, bloggers, students, और small business owners के लिए specially बना है।
+    </p>
+    <p class="about-text" style="margin-top:10px">
+      हमारा विश्वास है कि <strong>technology सबके लिए होनी चाहिए</strong> — चाहे आप बड़े शहर में हों या छोटे गाँव में। Raja AI आपके साथ है! 💪
+    </p>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact" class="page">
+  <div class="section-title">📞 Contact Us</div>
+  <div class="info-card">
+    <div class="contact-row">
+      <div class="icon" style="background:#e8f0fe">📧</div>
+      <div>
+        <span class="contact-label">Email</span>
+        <a href="mailto:rajahribabakumar@gmail.com">rajahribabakumar@gmail.com</a>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="icon" style="background:#e8f5e9">📱</div>
+      <div>
+        <span class="contact-label">Phone / WhatsApp</span>
+        <a href="https://wa.me/919682316132">+91 9682316132</a>
+      </div>
+    </div>
+
+    <div class="social-section">
+      <h3>🌐 Social Media पर Follow करें:</h3>
+      <div class="social-btns">
+        <a href="https://www.facebook.com/share/188kPJzBfr/" class="social-btn fb" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.instagram.com/rajakumar18.in" class="social-btn ig" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.youtube.com/@rajakumar18in" class="social-btn yt" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="#ff0000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          YouTube
+        </a>
+        <a href="https://wa.me/919682316132" class="social-btn wa" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.856L.057 23.214a.75.75 0 00.918.919l5.396-1.473A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.959-1.361l-.356-.211-3.686 1.005 1.021-3.594-.232-.369A9.738 9.738 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POLICY PAGE -->
+<div id="policy" class="page">
+  <div class="section-title">📜 Policies</div>
+  <div class="info-card">
+
+    <div class="policy-block">
+      <h3>🔒 Privacy Policy</h3>
+      <p>
+        Raja AI Official आपकी कोई भी personal data store नहीं करता। इस website पर दिए गए सभी tools पूरी तरह आपके browser में locally काम करते हैं। हम किसी third-party को आपकी कोई भी information share नहीं करते।
+        <br><br>
+        हम cookies का उपयोग नहीं करते। आपकी privacy हमारी सर्वोच्च प्राथमिकता है। यदि आपका कोई प्रश्न है, तो हमें email करें।
+      </p>
+    </div>
+
+    <hr class="policy-divider">
+
+    <div class="policy-block">
+      <h3>⚠️ Disclaimer</h3>
+      <p>
+        इस website पर दी गई सभी जानकारी केवल <strong>educational और informational purpose</strong> के लिए है। Raja AI Official किसी भी financial, legal, medical, या professional advice का दावा नहीं करता।
+        <br><br>
+        किसी भी महत्वपूर्ण निर्णय लेने से पहले संबंधित विशेषज्ञ से सलाह अवश्य लें। Content की accuracy के बारे में हम कोई guarantee नहीं देते।
+      </p>
+    </div>
+
+    <hr class="policy-divider">
+
+    <div class="policy-block">
+      <h3>📋 Terms & Conditions</h3>
+      <p>
+        इस website का उपयोग केवल <strong>legal और ethical purposes</strong> के लिए है। किसी भी illegal, harmful, abusive, या offensive activity के लिए इस platform का उपयोग पूरी तरह वर्जित है।
+        <br><br>
+        Platform का उपयोग करके आप इन सभी terms से सहमत होते हैं। Raja AI Official किसी भी misuse के लिए जिम्मेदार नहीं होगा। हम इन terms को बिना पूर्व सूचना के बदलने का अधिकार रखते हैं।
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>Raja AI Official</strong> — Made with ❤️ by <a href="#" onclick="showPage('about')">Raja Kumar</a></p>
+  <p style="margin-top:4px">
+    <a href="#" onclick="showPage('policy')">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="#" onclick="showPage('policy')">Terms</a> &nbsp;·&nbsp;
+    <a href="#" onclick="showPage('contact')">Contact</a>
+  </p>
+</footer>
+
+<script>
+// PAGE NAVIGATION
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  const map = { home: 0, about: 1, contact: 2, policy: 3 };
+  const btns = document.querySelectorAll('.nav-links button');
+  if (btns[map[name]]) btns[map[name]].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// FILL TOPIC FROM CHIP
+function fillTopic(t) {
+  document.getElementById('topicInput').value = t;
+  generateContent();
+}
+
+// CONTENT DATABASE
+const db = {
+  youtube: `🎬 YouTube पर Viral होने के 5 Secret Tips:
+
+• Thumbnail पर बड़े bold text और bright colors use करें — पहली नज़र में ध्यान खींचना जरूरी है
+• पहले 30 seconds में strong hook दें — दर्शक को रोकना ही सबसे बड़ी challenge है
+• Title में number और emotion दोनों डालें (जैसे: "5 गलतियाँ जो सब करते हैं")
+• हर video के end में next video suggest करें — watch time बढ़ेगा
+• Upload time: Tuesday-Thursday, शाम 6-8 बजे सबसे best है
+
+✅ Pro Tip: Shorts बनाओ — Long video से 10x ज्यादा fast growth होती है!
+🚀 Consistency ही success की असली चाबी है।`,
+
+  earning: `💰 Online Earning के 5 Proven तरीके 2026 में:
+
+• Freelancing (Fiverr, Upwork) — अपनी skills बेचें, ₹50,000+/month possible
+• YouTube Monetization — Shorts से भी earning शुरू हो सकती है
+• Affiliate Marketing — product recommend करो, हर sale पर commission पाओ
+• Digital Products — eBook, templates, presets बनाओ और बेचो
+• Social Media Management — businesses की pages handle करो ₹15-30K/month में
+
+💡 Beginner के लिए Best: Fiverr पर Content Writing या Logo Design से शुरू करो।
+🔥 Start small, stay consistent — success guaranteed!`,
+
+  jobs: `💼 Job पाने के Smart तरीके 2026:
+
+• LinkedIn profile 100% complete करें — recruiters खुद contact करेंगे
+• Resume में keywords डालें जो exactly job description में हों (ATS system)
+• Naukri.com, Indeed, और LinkedIn पर daily 5-10 jobs apply करें
+• Referral से मिलने वाली jobs में success rate 3x ज्यादा होती है
+• Interview prep: STAR method use करें — Situation, Task, Action, Result
+
+📌 Hot Skills 2026: AI/ML, Digital Marketing, Python, Data Analysis
+✅ हर rejection एक lesson है — हार मत मानो, strategy बदलो!`,
+
+  shayari: `❤️ Viral Love Shayari — Share करो, दिल जीतो:
+
+💫 "तेरी एक मुस्कान के लिए,
+   दुनिया से लड़ जाऊंगा मैं..."
+
+💫 "दिल की बात कहना मुश्किल है,
+   पर तेरे बिना जीना और मुश्किल..."
+
+💫 "इश्क़ में डूबा हूँ ऐसे,
+   जैसे रात में चाँद डूबे समंदर में..."
+
+📱 Best Caption Idea: "Tag करो उसे जो आपकी दुनिया है 💕"
+📊 ऐसी emotional shayari posts पर 10,000+ likes आते हैं!`,
+
+  cricket: `🏏 Dream11 जीतने की Expert Strategy:
+
+• Pitch report जरूर देखें — batting pitch है या bowling pitch?
+• Recent form में top 3 batsmen को जरूर अपनी team में लें
+• एक powerful all-rounder को captain बनाएं — points double होते हैं
+• Head-to-head stats check करें — कुछ players एक-दूसरे के against killer होते हैं
+• Small leagues (2-10 players) खेलें — profit ज्यादा, competition कम
+
+⚡ Today's Tip: Toss जीतने वाली team से minimum 3+ players लें!
+🎯 Wicket-keeper का चयन wisely करें — extra fielding points मिलते हैं।
+⚠️ Disclaimer: Dream11 skill-based game है, invest wisely.`,
+
+  tech: `📱 2026 के Top Tech Tips जो आपकी ज़िंदगी बदल देंगे:
+
+• Battery life 25% बढ़ाने का trick: Dark mode ON + Background app refresh OFF करो
+• WhatsApp hack: Blue tick दिए बिना message पढ़ो — Airplane mode trick use करो
+• Google Photos: 15GB free storage — सब कुछ automatically backup होता है
+• Typing speed 2x करो: Gboard का Glide/Swipe typing try करो
+• Slow phone को fast करो: Cache clear करो, unused apps uninstall करो
+
+🔥 Best Budget Phones 2026: Poco X6 Pro, Redmi Note 13 Pro, Realme 12 Pro
+💡 Pro Tip: Phone को रात को charge करना battery health के लिए bad है!`,
+
+  recipe: `🍛 Instant Viral Recipe — Crispy Bread Pakora:
+
+📦 Ingredients (4 servings के लिए):
+• Bread — 4 slices
+• Besan (gram flour) — 1 cup
+• Mashed potato filling: 2 boiled potato + green chutney + salt + chaat masala
+• Spices: Red chilli, cumin, turmeric
+
+👨‍🍳 Steps:
+1. Besan + water + spices से thick batter बनाएं
+2. Bread में potato filling भरें, sides को press करें
+3. Batter में dip करके hot oil में fry करें
+4. Golden brown होने तक fry करें (3-4 minutes)
+5. Chaat masala sprinkle करके serve करें
+
+⏱️ Total time: 20 minutes
+✅ Chai के साथ perfect evening snack!`,
+
+  motivation: `🔥 आज का Powerful Motivational Message:
+
+"हार तब होती है जब तुम कोशिश करना छोड़ देते हो — उससे पहले नहीं।"
+
+💪 याद रखो:
+• Elon Musk की Tesla और SpaceX दोनों bankrupt होने वाली थीं — आज वो world का top entrepreneur है
+• J.K. Rowling को Harry Potter के लिए 12 publishers ने reject किया था
+• हर successful person ने failure face किया है — difference सिर्फ ये है कि वो रुके नहीं
+
+🎯 आज का challenge:
+✅ 1 new skill सीखो — सिर्फ 30 minutes दो
+✅ 1 person को genuinely help करो
+✅ एक positive habit शुरू करो
+
+💫 Share करो अगर ये message आपके दिल को छू गया!`,
+
+  gaming: `🎮 Free Fire / PUBG Pro Tips 2026:
+
+• Landing strategy: पहले 2 minutes survival > kills। School/Pochinki जैसी hot spots avoid करो।
+• Best weapon combo: M416 + AWM = Perfect range coverage
+• Movement tip: Peek & fire technique सीखो — crouch while shooting, accuracy 40% बढ़ती है
+• Squad coordination: Callouts clear रखो — "3 enemy, north side, 200m"
+• Ranked grind: Kills से ज्यादा survive करो — points ज्यादा मिलते हैं
+
+⚙️ Pro Settings: Sensitivity 60-70, Graphics: Smooth + Extreme frame rate
+🎯 Hot Drop लेने से ज्यादा loot मिलता है लेकिन risk भी 3x होता है
+🏆 Chicken Dinner का मज़ा कुछ और ही है — Good luck! 🍗`,
+
+  education: `📚 Smart Study Tips जो Topper Use करते हैं:
+
+• Pomodoro technique: 25 min study + 5 min break = Maximum focus, minimum burnout
+• Active recall > Passive reading — खुद से questions पूछो, answers दो
+• Mind mapping: Complex topics को visual diagram बनाकर समझो
+• Best free resources: Khan Academy, Unacademy, YouTube (Hindi medium available)
+• Spaced repetition: आज पढ़ा → कल revise → हफ्ते बाद revise = Never forget
+
+😴 Sleep 7-8 hours — brain रात को memory consolidate करता है
+📵 Study के time phone को दूसरे room में रखो — distractions 90% कम होंगे
+
+🎯 SMART Goals बनाओ: Specific, Measurable, Achievable, Relevant, Time-bound
+✅ Consistency beats intensity — रोज 2 घंटे = Topper guaranteed!`
+};
+
+function getContent(topic) {
+  const t = topic.toLowerCase();
+  if (t.includes('youtube') || t.includes('channel') || t.includes('vlog')) return db.youtube;
+  if (t.includes('earn') || t.includes('money') || t.includes('income') || t.includes('paisa')) return db.earning;
+  if (t.includes('job') || t.includes('career') || t.includes('naukri') || t.includes('resume')) return db.jobs;
+  if (t.includes('shayari') || t.includes('love') || t.includes('pyaar') || t.includes('mohabbat')) return db.shayari;
+  if (t.includes('cricket') || t.includes('dream11') || t.includes('ipl') || t.includes('fantasy')) return db.cricket;
+  if (t.includes('tech') || t.includes('mobile') || t.includes('phone') || t.includes('android')) return db.tech;
+  if (t.includes('recipe') || t.includes('food') || t.includes('khana') || t.includes('cook')) return db.recipe;
+  if (t.includes('motiv') || t.includes('inspire') || t.includes('success') || t.includes('life')) return db.motivation;
+  if (t.includes('game') || t.includes('gaming') || t.includes('pubg') || t.includes('free fire') || t.includes('freefire')) return db.gaming;
+  if (t.includes('edu') || t.includes('study') || t.includes('padh') || t.includes('school') || t.includes('exam')) return db.education;
+
+  return `🚀 "${topic}" के लिए Viral Content Ideas:
+
+• इस topic पर 5 trending questions ढूंढो — Google "People Also Ask" देखो
+• Emotional angle से content लिखो — लोग feel करते हैं, तभी share करते हैं
+• Formula: Problem बताओ → Solution दो → CTA (Call to Action) लगाओ
+• Short-form content: Reel, YouTube Short, या Instagram Carousel बनाओ
+• Consistency: इस topic पर रोज 1 post minimum करो — algorithm आपको reward करेगा
+
+💡 Caption Template:
+"क्या आप जानते हैं ${topic} के बारे में ये 5 बातें? 👇"
+
+✅ Raja AI Official के साथ बनो viral! 🔥
+📱 Follow करो: @rajakumar18.in`;
+}
+
+function generateContent() {
+  const topic = document.getElementById('topicInput').value.trim();
+  if (!topic) {
+    document.getElementById('topicInput').focus();
+    document.getElementById('topicInput').style.borderColor = '#ea4335';
+    setTimeout(() => {
+      document.getElementById('topicInput').style.borderColor = '';
+    }, 1500);
+    return;
+  }
+
+  const box = document.getElementById('resultBox');
+  const actions = document.getElementById('resultActions');
+  box.style.display = 'block';
+  box.classList.add('loading');
+  box.textContent = '✨ Content generate हो रहा है...';
+  actions.style.display = 'none';
+
+  setTimeout(() => {
+    box.classList.remove('loading');
+    box.textContent = getContent(topic);
+    actions.style.display = 'flex';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 700);
+}
+
+function copyResult() {
+  const text = document.getElementById('resultBox').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btns = document.querySelectorAll('#resultActions .btn-sm');
+    const orig = btns[0].textContent;
+    btns[0].textContent = '✅ Copied!';
+    btns[0].style.color = '#34a853';
+    setTimeout(() => {
+      btns[0].textContent = orig;
+      btns[0].style.color = '';
+    }, 2000);
+  }).catch(() => {
+    const range = document.createRange();
+    range.selectNode(document.getElementById('resultBox'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+  });
+}
+
+// Enter key support
+document.getElementById('topicInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') generateContent();
+});
+</script>
+</body>
+</html>
